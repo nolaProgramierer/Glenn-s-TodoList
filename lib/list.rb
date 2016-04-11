@@ -4,7 +4,7 @@ class List
   attr_accessor :title
 
   def initialize(options={})
-    @title = options[:title]
+    @title = options[:title] || "Untitled List"
     @items = []
   end
 
