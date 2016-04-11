@@ -1,15 +1,14 @@
 class TodoItem
+  include Listable
 
+  # attr_reader :type
   attr_accessor :description, :due_date, :priority
 
   def initialize(description, options={})
+    # @type = "todo"
     @description = description
-    @due_date = options[:due_date] ? Date.parse(options[:due_date]) : options[:due_date]
+    @due_date = options[:due_date] ? Chronic.parse(options[:due_date]) : options[:due_date]
     @priority = options[:priority]
-  end
-
-  def format_description
-    "#{@description}".ljust(25)
   end
 
   def format_date
@@ -17,9 +16,9 @@ class TodoItem
   end
 
   def format_priority
-    level = "↑" if @priority == "high"
-    level = "→" if @priority == "medium"
-    level = "↓" if @priority == "low"
+    level = "↑".colorize(:red) if @priority == "high"
+    level = "→".colorize(:orange) if @priority == "medium"
+    level = "↓".colorize(:green) if @priority == "low"
     level = "" if !@priority
     return level
   end

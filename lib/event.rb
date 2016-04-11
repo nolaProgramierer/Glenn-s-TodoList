@@ -1,14 +1,14 @@
 class EventItem
+  include Listable
+
+  # attr_reader :type
   attr_accessor :description, :start_date, :end_date
 
   def initialize(description, options={})
+    # @type = "event"
     @description = description
-    @start_date = options[:start_date] ? Date.parse(options[:start_date]) : options[:start_date]
-    @end_date = options[:end_date] ? Date.parse(options[:end_date]) : options[:end_date]
-  end
-
-  def format_description
-    "#{@description}".ljust(25)
+    @start_date = options[:start_date] ? Chronic.parse(options[:start_date]) : options[:start_date]
+    @end_date = options[:end_date] ? Chronic.parse(options[:end_date]) : options[:end_date]
   end
 
   def format_start
@@ -16,7 +16,7 @@ class EventItem
   end
 
   def format_end
-    @end_date ? @end_date.strftime("%D") : "No end date"
+    @end_date ? @end_date.strftime("%D ") : "No end date"
   end
 
   def formatting

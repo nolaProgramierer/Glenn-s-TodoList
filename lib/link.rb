@@ -1,13 +1,13 @@
 class LinkItem
+  include Listable
+
+  # attr_reader :type
   attr_accessor :description, :site_name
 
-  def initialize(description, options={})
-    @url = description
+  def initialize(url, options={})
+    # @type = "link"
+    @description = url
     @site_name = options[:site_name]
-  end
-
-  def format_description
-    "#{@url}".ljust(25)
   end
 
   def format_name
