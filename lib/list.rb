@@ -69,7 +69,7 @@ class List
 
   def filter(type)
     filter_class(type).each_with_index do |value, index|
-      puts "#{index + 1}" + ") " + "#{value.formatting}"
+      puts "Type: " + "#{type}".capitalize +  "\n#{index + 1}" + ") " + "#{value.formatting}"
     end
   end
 
