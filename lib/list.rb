@@ -54,6 +54,14 @@ class List
   # end
 
 # find items by looking for class of object
+
+  def filter(type)
+    filter_class(type).each_with_index do |value, index|
+      puts "Type: " + "#{type}".capitalize +  "\n#{index + 1}" + ") " + "#{value.formatting}"
+    end
+  end
+
+  private
   def filter_class(type)
     type = type.downcase
     type_array = []
@@ -67,10 +75,5 @@ class List
     type_array
   end
 
-  def filter(type)
-    filter_class(type).each_with_index do |value, index|
-      puts "Type: " + "#{type}".capitalize +  "\n#{index + 1}" + ") " + "#{value.formatting}"
-    end
-  end
 
 end
