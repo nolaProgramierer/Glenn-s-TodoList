@@ -4,7 +4,10 @@ module TodoListErrors
 
   class IndexExceedsListSize < StandardError
   end
-  
+
   class InvalidPriorityValue < StandardError
+  end
+
+  class InvalidSearchValue < StandardError
   end
 end

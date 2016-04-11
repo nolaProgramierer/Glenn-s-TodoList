@@ -61,6 +61,10 @@ class List
     end
   end
 
+# find item by description
+  
+
+
   private
   def filter_class(type)
     type = type.downcase
