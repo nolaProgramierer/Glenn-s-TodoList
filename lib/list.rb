@@ -61,9 +61,24 @@ class List
     end
   end
 
-# find item by description
-  
-
+# iterates through obj array looking for description attribute
+  def find_by_description(desc)
+    description_array = []
+    @items.each do |item|
+      if item.description == desc
+        description_array.push(item)
+      end
+    end
+    print_description(description_array)
+  end
+# outputs and formats description array if not empty
+  def print_description(desc_array)
+    if desc_array.empty?
+      puts "Your search yields no results."
+    else
+      desc_array.each { |item| puts item.formatting }
+    end
+  end
 
   private
   def filter_class(type)
