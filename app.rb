@@ -27,4 +27,4 @@ list2.all
 list1.filter("event")
 list1.filter("link")
 
-list1.find_by_description(" Laurie")
+list1.find_by_description("Call Laurie")

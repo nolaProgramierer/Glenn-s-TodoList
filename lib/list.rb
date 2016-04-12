@@ -61,22 +61,15 @@ class List
     end
   end
 
-# iterates through obj array looking for description attribute
+# finds description attribute in 'items' array
+# iterates through description array to print
+# Nice and dry! (except for comments)
   def find_by_description(desc)
-    description_array = []
-    @items.each do |item|
-      if item.description == desc
-        description_array.push(item)
-      end
-    end
-    print_description(description_array)
-  end
-# outputs and formats description array if not empty
-  def print_description(desc_array)
-    if desc_array.empty?
-      puts "Your search yields no results."
+    description_array = @items.select { |item| item.description == desc }
+    if description_array.empty?
+      puts "Your search yields no results"
     else
-      desc_array.each { |item| puts item.formatting }
+      description_array.each { |item| puts item.formatting }
     end
   end
 
